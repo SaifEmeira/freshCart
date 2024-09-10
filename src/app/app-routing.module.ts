@@ -54,28 +54,6 @@ const routes: Routes = [
 
 
 
-{path:"",component:BlanckLayoutComponent,children:[
-  {path:"",redirectTo:"home",pathMatch:"full"},
-  {path:'setting',loadChildren:()=>import('../app/new-setting/new-setting.module').then((m)=>m.NewSettingModule)},
-
-
-
-  {path:"home", canActivate:[authGuard],component:HomeComponent},
-  {path:"products", canActivate:[authGuard],component:ProductsComponent},
-  {path:"details/:id", canActivate:[authGuard],component:DetailsComponent},
-
-
-  {path:"cart", canActivate:[authGuard],component:CartComponent},
-
-  {path:"payment/:id", canActivate:[authGuard],component:PaymentComponent},
-
-  {path:"allorders", canActivate:[authGuard],component:HomeComponent},
-
-
-
-  {path:"brands", canActivate:[authGuard],component:BrandsComponent},
-  {path:"categories", canActivate:[authGuard],component:CategoriesComponent},
-]},
 
 
 
