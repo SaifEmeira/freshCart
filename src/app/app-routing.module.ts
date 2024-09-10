@@ -16,10 +16,10 @@ import { PaymentComponent } from './component/payment/payment.component';
 import { AllordersComponent } from './component/allorders/allorders.component';
 
 const routes: Routes = [
+  {path:'allorders',redirectTo:"home",pathMatch:"full"},
 
 
 {path:"",component:AuthLayoutComponent,children:[
-  {path:'allorders',redirectTo:"home",pathMatch:"full"},
   {path:"",redirectTo:"register",pathMatch:"full"},
   {path:"register",component:RegisterComponent},
 {path:"login",component:LoginComponent},
