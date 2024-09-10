@@ -20,9 +20,18 @@
         
            </div>
     
-        <div class="form-item">
+        <div  class="form-item position-relative">
             <label class="text-main fw-bolder " for="password">password</label>
-            <input class="form-control" type="password" formControlName="password" id="password">
+            <input matInput [type]="hide() ? 'password' : 'text'" class="form-control" type="password" formControlName="password" id="password">
+            <button class="position-absolute i-btn "
+      mat-icon-button
+      matSuffix
+      (click)="clickEvent($event)"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide()"
+    >
+      <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
         </div>
         <div *ngIf="loginForm.get('password')?.errors&&(loginForm.get('password')?.touched||loginForm.get('password')?.value.length>0)" class="alert alert-danger">
             <p *ngIf="loginForm.get('password')?.getError('required')">password Is Required</p>
@@ -30,6 +39,23 @@
         
         
            </div>
+
+          
+
+
+           <!-- <mat-form-field>
+    <mat-label>Enter your password</mat-label>
+    <input matInput [type]="hide() ? 'password' : 'text'" />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="clickEvent($event)"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide()"
+    >
+      <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field> -->
        
     
         <button [disabled]="loginForm.invalid"  type="submit" class= " d-block ms-auto my-2 main-btn">LOGIN <span *ngIf="isLoading"><i class="fas fa-spin fa-spinner"></i></span></button>

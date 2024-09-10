@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
@@ -12,7 +12,19 @@ import { AuthService } from 'src/app/service/auth.service';
 export class LoginComponent {
 
 
+
+  
+
+
   constructor(private _AuthService:AuthService , private _Router:Router){}
+
+
+
+  hide = signal(true);
+  clickEvent(event: MouseEvent) {
+    this.hide.set(!this.hide());
+    event.stopPropagation();
+  }
 
 
   isLoading:boolean=false
@@ -21,6 +33,8 @@ export class LoginComponent {
 
 
   msgError:string="";
+
+  
 
   goRegister():void{
     this._Router.navigate(["/register"])

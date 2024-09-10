@@ -26,6 +26,10 @@ import { AllordersComponent } from './component/allorders/allorders.component';
 import { ToastrModule } from 'ngx-toastr';
 import { MyhttpInterceptor } from './myhttp.interceptor';
 import { SearchPipe } from './search.pipe';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -56,7 +60,8 @@ import { SearchPipe } from './search.pipe';
     BrowserAnimationsModule,
     CarouselModule,
     ToastrModule.forRoot(),
-    FormsModule
+    FormsModule,
+    MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:MyhttpInterceptor,multi:true}
