@@ -21,7 +21,7 @@ export class RegisterComponent {
     email:new FormControl('', [Validators.required,Validators.email]),
     password:new FormControl('', [Validators.required , Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]),
     rePassword:new FormControl('', ),
-    phone:new FormControl('', [Validators.required , Validators.pattern(/^(?:\+20|0020)?(?:10|11|12|15)\d{8}$/)]),
+    phone:new FormControl('', [Validators.required , Validators.pattern(/^(?:\+20|0020)?(?:10|11|12|15)\d{9}$/)]),
 
 
   } ,  {validators:[this.confirmPaswword]} as FormControlOptions)
