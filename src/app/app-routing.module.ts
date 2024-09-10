@@ -20,7 +20,7 @@ const routes: Routes = [
 
 {path:"",component:AuthLayoutComponent,children:[
   {path:'allorders',redirectTo:"home",pathMatch:"full"},
-  {path:"",redirectTo:"home",pathMatch:"full"},
+  {path:"",redirectTo:"register",pathMatch:"full"},
   {path:"register",component:RegisterComponent},
 {path:"login",component:LoginComponent},
 
