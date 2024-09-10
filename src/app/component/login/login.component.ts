@@ -21,6 +21,10 @@ export class LoginComponent {
 
 
   msgError:string="";
+
+  goRegister():void{
+    this._Router.navigate(["/register"])
+  }
   
 
 
@@ -44,6 +48,8 @@ if (this.loginForm.valid) {
 
           
         }
+
+
 
     this.isLoading=false;
 
