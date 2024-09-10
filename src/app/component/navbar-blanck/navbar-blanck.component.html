@@ -1,0 +1,63 @@
+<nav #nav class="navbar  fixed-top navbar-expand-sm navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" routerLink="/home"><img src="./assets/images/freshcart-logo.svg" alt=""></a>
+        <button
+            class="navbar-toggler d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0 ">
+                
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-link" routerLink="/home">Home</a> 
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-link" routerLink="brands">Brands</a> 
+                </li>
+                
+            </ul>
+
+
+            <ul class="navbar-nav ms-auto mt-2 align-items-center">
+
+
+
+
+                <li class="nav-item position-relative">
+                    <a class="nav-link "  routerLink="cart"><i class="fas fa-2x fa-cart-shopping text-main"></i></a>
+                    <span class="badge bg-main position-absolute top-0 end-0 fw-bolder">{{cartNumber}}</span> 
+                </li>
+
+                <li class="nav-item d-flex gap-3  pe-3 align-items-center ">
+                    <i class="fab cursor-pointer fa-facebook "></i>
+                    <i class="fab cursor-pointer fa-instagram"></i>
+                    <i class="fab cursor-pointer fa-github"></i>
+                    <i class="fab cursor-pointer fa-linkedin-in"></i>
+                    <i class="fab cursor-pointer fa-whatsapp"></i>
+
+                </li>
+
+                <li class="nav-item  pe-2">
+                    <span class="text-main fw-bolder">HI {{userName | uppercase}}</span>
+                </li>
+               
+                
+                <li class="nav-item ">
+                    <span (click)="removeToken()" role="button">Sign Out</span>
+                </li>
+               
+                
+            </ul>
+            
+        </div>
+    </div>
+</nav>

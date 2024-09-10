@@ -1,0 +1,113 @@
+
+
+
+
+
+<section *ngIf="isLoading===false" class="py-4">
+  <div class="row g-0">
+    <div class="col-md-8">
+
+      <owl-carousel-o [options]="mainSlider">
+        <ng-template  carouselSlide><img  height="400" class="w-100 object-fit-cover" src="./assets/images/main-slider-1.jpeg" alt=""></ng-template>
+        <ng-template  carouselSlide><img  height="400" class="w-100 object-fit-cover" src="./assets/images/main-slider-2.jpeg" alt=""></ng-template>  
+        <ng-template  carouselSlide><img  height="400" class="w-100 object-fit-cover" src="./assets/images/main-slider-3.jpeg" alt=""></ng-template>  
+
+         
+      </owl-carousel-o>
+
+    </div>
+    <div class="col-md-4">
+      <div class="d-flex flex-column">
+        <div>
+      <img height="200" class="w-100" src="./assets/images/main-slider-2.jpeg" alt="">
+
+
+        </div>
+        <div>
+          <img height="200" class="w-100" src="./assets/images/main-slider-3.jpeg" alt="">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+
+  <h2 class="p-3 text-main">{{shop}}</h2>
+  <owl-carousel-o [options]="catslider">
+
+    <ng-container *ngFor="let slide of categoriesArr">
+      <ng-template carouselSlide >
+        <img class="object-fit-cover" height="360" [src]="slide.image" [alt]="slide.name" [title]="slide.name">
+        <h3 class="h6 text-main">{{slide.name}}</h3>
+      </ng-template>
+    </ng-container>
+
+  </owl-carousel-o>
+</section>
+
+
+<input *ngIf="isLoading===false" type="text" class="form-control mx-auto my-3 w-50" [(ngModel)]="searchTerm">
+
+
+
+<section  class="py-5">
+
+
+
+  
+
+
+
+
+
+    <div *ngIf="isLoading"  class="sk-cube-grid z-3 d-flex justify-content-center align-items-center">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+      </div>
+
+
+
+
+
+
+
+
+  <div *ngIf="isLoading===false"  class="row g-5">
+    <div *ngFor="let data of productsData|search:searchTerm" class=" col-md-3 ">
+      <div class="card p-3  border-success border-4">
+        
+        <div [routerLink]="['/details',data._id]" class="cursor-pointer">
+
+
+            <img [src]="data.imageCover" class="w-100"  alt="" />
+        <div class="product-details">
+          <h4 class="text-main h6">{{ data.category.name }}</h4>
+
+          <h3 class="h6">{{ data.title.split(" ",2).join(" ") }}</h3>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <span>{{data.price | currency:" EGP "}}</span>
+            <span> <i class="fas fa-star rating-color  "></i> {{data.ratingsAverage}}</span>
+          </div>
+          
+        </div>
+
+        </div>
+        
+        <div>
+            <button (click)="addProduct(data._id)" class="w-100 main-btn my-2">+ Add To Cart</button>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>

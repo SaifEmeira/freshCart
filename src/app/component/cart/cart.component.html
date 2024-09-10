@@ -1,0 +1,66 @@
+
+
+<section class=" justify-content-center hstack my-4 py-5" *ngIf="cartData.products?.length===0">
+
+   
+        <img width="400" class=" " src="./assets/images/empty-cart-illustration-download-in-svg-png-gif-file-formats--shopping-ecommerce-simple-error-state-pack-user-interface-illustrations-6024626.webp" alt="">
+    
+
+</section>
+
+
+
+
+<section *ngIf="isLoading===false && cartData.products?.length!==0 " class="w-75 my-5 bg-main-light rounded shadow mx-auto p-3">
+
+
+
+
+    
+  <h2>Your CART</h2>
+
+  <h3 class="h6 text-main">
+    Total cart Price : {{ cartData.totalCartPrice | currency : " EGP " }}
+  </h3>
+
+  <div  class="row border-bottom py-3" *ngFor="let item of cartData.products">
+    <div class="col-md-2">
+      <img
+        class="w-100"
+        [src]="item.product.imageCover"
+        [alt]="item.product.title"
+      />
+    </div>
+    <div class="col-md-10 pt-2 d-flex justify-content-between align-items-center">
+      <div>
+        <h3 class="h6">{{ item.product.title.split(" ",2).join(" ") }}</h3>
+        <p class="text-main">price: {{item.price}}</p>
+        <button (click)="deleteProd(item.product._id)" class="btn p-0 m-0"><i class="fas fa-trash-can text-main pe-1"></i> Remove </button>
+      </div>
+
+      <div>
+        <button #btn1  (click)="changeCount(item.product._id,item.count+1,btn1,btn2)" class="me-1 text-main  border-0"><i class="fas fa-plus-circle fa-1x"></i></button>
+        <span class="">{{item.count}}</span>
+        <button #btn2 (click)="changeCount(item.product._id,item.count-1,btn1,btn2)" class="ms-1 text-main  border-0"><i class="fas fa-minus-circle fa-1x"></i></button>
+      </div>
+    </div>
+  </div>
+
+
+  <button [routerLink]="['/payment' , cartData._id]" class="main-btn mt-2">Online Payment <img src="./assets/images/visa-1.svg" alt=""></button>
+</section>
+
+
+<section class=" d-flex justify-content-center align-items-center">
+    <div *ngIf="isLoading"  class="sk-cube-grid z-3 d-flex justify-content-center align-items-center">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+      </div>
+</section>

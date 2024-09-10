@@ -1,0 +1,53 @@
+
+<div *ngIf="isLoading"  class="sk-cube-grid z-3 d-flex justify-content-center align-items-center">
+    <div class="sk-cube sk-cube1"></div>
+    <div class="sk-cube sk-cube2"></div>
+    <div class="sk-cube sk-cube3"></div>
+    <div class="sk-cube sk-cube4"></div>
+    <div class="sk-cube sk-cube5"></div>
+    <div class="sk-cube sk-cube6"></div>
+    <div class="sk-cube sk-cube7"></div>
+    <div class="sk-cube sk-cube8"></div>
+    <div class="sk-cube sk-cube9"></div>
+  </div>
+
+
+
+<section *ngIf="isLoading===false" class="py-4">
+
+
+
+    
+
+
+      <div *ngIf="isLoading===false" class="row g-5" >
+
+        <div *ngFor="let item of brandArr" class="col-md-3">
+        
+        <div  class="card p-3  text-center border-success border-4" >
+
+
+            <img [src]="item.image" class="w-100"  alt="" />
+        <div class="product-details">
+          <h4 class="text-main fw-bolder ">{{ item.name }}</h4>
+
+          
+        </div>
+        </div>
+
+        </div>
+        
+        
+      </div>
+
+
+
+
+
+    <div class="row g-5 px-2 ">
+        <div *ngFor="let item of brandArr" class="col-md-3 px-3 text-center border border-success rounded shadow ">
+            <img [src]="item.image" alt="">
+            <h5 class="text-main pt-2">{{item.name}}</h5>
+        </div>
+    </div>
+</section>

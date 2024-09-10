@@ -1,0 +1,52 @@
+<section class="py-5 text-center">
+
+
+    <div *ngIf="isLoading"  class="sk-cube-grid z-3 d-flex justify-content-center align-items-center">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+      </div>
+    <div *ngIf="isLoading===false" class="row justify-content-center align-items-center">
+        <div class="col-md-4">
+
+            <owl-carousel-o [options]="prodSlider">
+
+                <ng-container *ngFor="let slide of prodData.images">
+                  <ng-template carouselSlide >
+                    <img [src]="slide">
+                  </ng-template>
+                </ng-container>
+            
+              </owl-carousel-o>
+        </div>
+        <div class="col-md-8">
+
+            <div>
+                <h3>{{prodData.title}}</h3>
+            <p>{{prodData.description}}</p>
+            <p>{{prodData.category.name}}</p>
+
+            </div>
+
+            
+
+            <div class="d-flex justify-content-between align-items-center">
+                <span>{{prodData.price | currency:" EGP "}}</span>
+                <span> <i class="fas fa-star rating-color  "></i> {{prodData.ratingsAverage}}</span>
+              </div>
+
+
+              <div>
+                <button (click)="addProduct(prodData._id)" class="w-100 main-btn my-2">Add To Cart</button>
+              </div>
+
+
+        </div>
+    </div>
+</section>

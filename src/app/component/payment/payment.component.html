@@ -1,0 +1,20 @@
+<section class="my-5 bg-main-light rounded shadow mx-auto p-3" >
+    <form class="mx-auto " [formGroup]="onlinePaymentForm" (ngSubmit)="handlePayment()">
+
+        <div class="form-item text-main fw-bolder">
+            <label for="details "> details</label>
+            <input type="text" id="details" class="form-control" formControlName="details">
+        </div>
+        <div class="form-item text-main fw-bolder">
+            <label for="phone "> phone</label>
+            <input type="tel" id="phone" class="form-control" formControlName="phone">
+        </div>
+        <div class="form-item text-main fw-bolder">
+            <label for="city "> city</label>
+            <input type="text" id="city" class="form-control" formControlName="city">
+        </div>
+
+        <button type="submit" class="main-btn mt-3 ">CheckOut</button>
+
+    </form>
+</section>

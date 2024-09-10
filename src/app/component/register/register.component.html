@@ -1,0 +1,106 @@
+
+
+<section class="  d-flex justify-content-center align-items-center py-5">
+
+
+    <form (ngSubmit)="handleRegister()" class="  rounded shadow w-75 mx-auto bg-light-main mt-5 p-4" [formGroup]="registerForm">
+
+
+        <h1 class="text-main fw-bolder my-2 ">REGISTER:</h1>
+        <div class="form-item">
+            <label class="text-main  fw-bolder " for="name">name</label>
+            <input class="form-control" type="text" formControlName="name" id="name">
+        </div>
+    
+       <div *ngIf="registerForm.get('name')?.errors&&(registerForm.get('name')?.touched||registerForm.get('name')?.value.length>0)" class="alert alert-danger">
+        <p *ngIf="registerForm.get('name')?.getError('required')">Name Is Required</p>
+        <p *ngIf="registerForm.get('name')?.getError('minlength')">Name MinLength Is 3</p>
+        <p *ngIf="registerForm.get('name')?.getError('maxlength')">Name MaxLength Is 20</p>
+    
+    
+       </div>
+    
+        <div class="form-item">
+            <label class="text-main fw-bolder " for="email">email</label>
+            <input class="form-control" type="email" formControlName="email" id="email">
+        </div>
+    
+        <div *ngIf="registerForm.get('email')?.errors&&(registerForm.get('email')?.touched||registerForm.get('email')?.value.length>0)" class="alert alert-danger">
+            <p *ngIf="registerForm.get('email')?.getError('required')">email Is Required</p>
+            <p *ngIf="registerForm.get('email')?.getError('email')">Enter A Valid Email</p>
+        
+        
+           </div>
+    
+        <div class="form-item">
+            <label class="text-main fw-bolder " for="password">password</label>
+            <input class="form-control" type="password" formControlName="password" id="password">
+        </div>
+        <div *ngIf="registerForm.get('password')?.errors&&(registerForm.get('password')?.touched||registerForm.get('password')?.value.length>0)" class="alert alert-danger">
+            <p *ngIf="registerForm.get('password')?.getError('required')">password Is Required</p>
+            <!-- <p *ngIf="registerForm.get('password')?.getError('pattern')">Must Be At Least 6 Chars</p> -->
+             <ul class="list-group-item-danger" *ngIf="registerForm.get('password')?.getError('pattern')">
+
+                <li>At least 8 characters long</li>
+                <li>At least one uppercase letter
+                </li>
+                <li>At least one lowercase letter
+                </li>
+                <li>At least one digit
+                </li>
+                <li>At least one special character (e.g., !#$%^&*)
+                </li>
+                
+
+
+             </ul>
+        
+        
+           </div>
+        <div class="form-item">
+            <label class="text-main fw-bolder " for="rePassword">rePassword</label>
+            <input class="form-control" type="password" formControlName="rePassword" id="rePassword">
+        </div>
+    
+        <div *ngIf="registerForm.get('rePassword')?.errors&&(registerForm.get('rePassword')?.touched||registerForm.get('rePassword')?.value.length>0)" class="alert alert-danger">
+            <p *ngIf="registerForm.get('rePassword')?.getError('required')">rePassword Is Required</p>
+            <p *ngIf="registerForm.get('rePassword')?.getError('mismatch')">MUST MATCH PASSWORD</p>
+        
+        
+           </div>
+        
+        <div class="form-item">
+            <label class="text-main fw-bolder " for="phone">phone</label>
+            <input class="form-control" type="tel" formControlName="phone" id="phone">
+        </div>
+    
+        <div *ngIf="registerForm.get('phone')?.errors&&(registerForm.get('phone')?.touched||registerForm.get('phone')?.value.length>0)" class="alert alert-danger">
+            <p *ngIf="registerForm.get('phone')?.getError('required')">phone Is Required</p>
+            <p *ngIf="registerForm.get('phone')?.getError('pattern')">Enter A Valid Phone Format</p>
+        
+        
+           </div>
+    
+        <button [disabled]="registerForm.invalid"  type="submit" class= " d-block ms-auto my-2 main-btn">REGISTER <span *ngIf="isLoading"><i class="fas fa-spin fa-spinner"></i></span></button>
+    
+    
+        <div *ngIf="msgError.length>0" class="alert alert-danger">
+            <p>{{msgError}}</p>
+        </div>
+
+
+
+
+        <div>
+            <p class="text-center fs-6">ALREADY HAVE ACCOUNT <br> <span class="  text-main fs-3 fw-bolder " role="button" (click)="goLogin()">LOGIN</span></p>
+        </div>
+    
+    
+       
+        
+    </form>
+
+
+
+
+</section>
