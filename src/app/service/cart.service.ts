@@ -48,7 +48,7 @@ export class CartService {
 
 
   checkOut(id:string, orderDetails:object ):Observable<any>{
-    return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=https://fresh-cart-project.netlify.app/home`,{
+    return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=https://fresh-cart-project.netlify.app/#/home`,{
       shippingAddress:orderDetails
     })
   }
